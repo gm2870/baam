@@ -1,0 +1,35 @@
+<mat-toolbar class="border-foreground/10 border-b border-solid">
+  <div class="container">
+    <div class="flex justify-between items-center">
+      <div class="flex">
+        <img class="h-[42px]" src="/assets/images/baam-fill.svg" alt="" />
+        <nav class="flex items-center px-2">
+          <a mat-button routerLink="#" i18n>بانک ملی</a>
+          <a mat-button routerLink="#">تماس با ما</a>
+          <a mat-button routerLink="#">راهنما</a>
+        </nav>
+      </div>
+      <div class="flex">
+        <button class="mx-4" [matMenuTriggerFor]="menu">
+          <img class="!h-[36px] !w-[36px]" src="/assets/images/profile.png" />
+        </button>
+        <mat-menu
+          #menu="matMenu"
+          xPosition="before"
+          class="!min-w-[250px] lg:!mt-3"
+        >
+          <div class="py-2 mx-4">
+            <span>پروفایل من</span>
+            <small class="block opacity-75 !my-2">شما هنوز وارد نشده اید</small>
+          </div>
+          <div></div>
+          <div>
+            <div></div>
+            <!-- <mat-slide-toggle></mat-slide-toggle> -->
+          </div>
+        </mat-menu>
+        <img class="h-[42px]" src="/assets/images/bmi-hor.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "vazir-font/dist/Farsi-Digits/font-face-FD.css";
+:root {
+  --mat-toolbar-standard-height: 60px;
+  --mat-toolbar-mobile-height: 52px;
+  --mat-toolbar-container-background-color: white;
+  --mat-toolbar-container-text-color: rgba(0, 0, 0, 0.87);
+  --mdc-text-button-label-text-color: inherit;
+  --mdc-outlined-button-label-text-color: inherit;
+}
+
+@font-face {
+  font-family: Vazir FD !important;
+  src: url("~vazir-font/dist/Farsi-Digits/Vazir-Regular-FD.eot");
+  src: url("~vazir-font/dist/Farsi-Digits/Vazir-Regular-FD.eot?#iefix")
+      format("embedded-opentype"),
+    url("~vazir-font/dist/Farsi-Digits/Vazir-Regular-FD.woff2") format("woff2"),
+    url("~vazir-font/dist/Farsi-Digits/Vazir-Regular-FD.woff") format("woff"),
+    url("~vazir-font/dist/Farsi-Digits/Vazir-Regular-FD.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+*:not(.material-icons, .icon) {
+  font-family: Vazir FD !important;
+}
+
+button.mdc-button.mat-mdc-button-base:not(.mat-mdc-icon-button),
+a.mdc-button.mat-mdc-button-base:not(.mat-mdc-icon-button) {
+  height: 46px;
+}
