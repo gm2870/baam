@@ -66,3 +66,11 @@ a.mdc-button.mat-mdc-button-base:not(.mat-mdc-icon-button) {
   .mdc-floating-label--float-above {
   transform: translateY(-34.75px) scale(0.75, 0.75) !important;
 }
+small {
+  font-size: 80%;
+}
+*,
+:before,
+:after {
+  border-color: currentColor;
+}

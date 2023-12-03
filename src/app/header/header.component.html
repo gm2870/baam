@@ -22,10 +22,46 @@
             <span>پروفایل من</span>
             <small class="block opacity-75 !my-2">شما هنوز وارد نشده اید</small>
           </div>
-          <div></div>
-          <div>
-            <div></div>
-            <!-- <mat-slide-toggle></mat-slide-toggle> -->
+          <mat-divider></mat-divider>
+
+          <mat-expansion-panel
+            (click)="$event.stopPropagation()"
+            class="mat-elevation-z0"
+          >
+            <mat-expansion-panel-header class="!px-4 py-2">
+              <mat-panel-title>
+                <div class="flex">
+                  <img src="assets/images/global.svg" alt="" />
+                  <span class="mx-1">زبان</span>
+                  <small class="mx-1 opacity-75">(فارسی)</small>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+          <mat-divider></mat-divider>
+          <mat-expansion-panel
+            (click)="$event.stopPropagation()"
+            class="mat-elevation-z0"
+          >
+            <mat-expansion-panel-header class="!px-4 py-2">
+              <mat-panel-title>
+                <div class="flex">
+                  <img src="assets/images/brush.svg" alt="" />
+                  <span class="mx-1">قالب</span>
+                  <small class="mx-1 opacity-75">(پیش فرض)</small>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+          <div
+            (click)="$event.stopPropagation()"
+            class="flex justify-between !px-4 py-2"
+          >
+            <div class="flex">
+              <img src="assets/images/mask.svg" alt="" />
+              <span class="mx-1">حالت شب</span>
+            </div>
+            <mat-slide-toggle color="primary"></mat-slide-toggle>
           </div>
         </mat-menu>
         <img class="h-[42px]" src="/assets/images/bmi-hor.svg" alt="" />
