@@ -1,7 +1,15 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "vazir-font/dist/Farsi-Digits/font-face-FD.css";
+@import "./app/themes/default-theme";
+@import "./app/themes/spring-theme";
+
+@include mat.all-component-themes($default-theme);
+
 :root {
   --mat-toolbar-standard-height: 60px;
   --mat-toolbar-mobile-height: 52px;
@@ -36,9 +44,25 @@ body {
 
 *:not(.material-icons, .icon) {
   font-family: Vazir FD !important;
+  letter-spacing: normal;
 }
 
 button.mdc-button.mat-mdc-button-base:not(.mat-mdc-icon-button),
 a.mdc-button.mat-mdc-button-base:not(.mat-mdc-icon-button) {
   height: 46px;
+}
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  top: 26px;
+}
+.mat-mdc-form-field-infix {
+  min-height: 52px;
+}
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined
+  .mdc-notched-outline--upgraded
+  .mdc-floating-label--float-above {
+  transform: translateY(-34.75px) scale(0.75, 0.75) !important;
 }
