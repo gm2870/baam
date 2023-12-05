@@ -40,6 +40,7 @@ body {
 }
 body {
   margin: 0;
+  font-size: 14px !important;
 }
 
 *:not(.material-icons, .icon) {
@@ -73,4 +74,21 @@ small {
 :before,
 :after {
   border-color: currentColor;
+}
+
+.border-foreground\/10 {
+  border-color: rgb(var(--foreground-color), 0.1);
+}
+.mat-expansion-panel .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.mat-mdc-list-base {
+  --mdc-list-list-item-label-text-size: 0.875rem;
+}
+.mat-expansion-panel-header {
+  --mat-expansion-header-text-size: 0.875rem;
+}
+.mat-mdc-menu-content {
+  --mat-menu-item-label-text-size: 0.875rem;
 }
