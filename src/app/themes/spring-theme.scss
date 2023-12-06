@@ -15,7 +15,3 @@ $spring-theme: mat.define-light-theme(
     ),
   )
 );
-
-.spring--theme {
-  @include mat.button-color($spring-theme);
-}

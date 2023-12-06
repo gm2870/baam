@@ -63,18 +63,22 @@
                 </div>
               </mat-panel-title>
               <ng-template matExpansionPanelContent>
-                <mat-selection-list [multiple]="false">
+                <mat-selection-list
+                  (selectionChange)="onThemeChange($event)"
+                  [multiple]="false"
+                >
                   <mat-list-option
+                    [selected]="theme() === t.name"
                     color="primary"
-                    *ngFor="let theme of themes"
-                    [value]="theme.name"
+                    *ngFor="let t of themes"
+                    [value]="t.name"
                   >
                     <span
                       matListItemAvatar
                       class="!h-5 !w-5"
-                      [style]="theme.avatar"
+                      [style]="t.avatar"
                     ></span>
-                    <span matlistitemtitle>{{ theme.label }}</span>
+                    <span matlistitemtitle>{{ t.label }}</span>
                   </mat-list-option>
                 </mat-selection-list>
               </ng-template>

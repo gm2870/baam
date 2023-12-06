@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, Inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,8 +6,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatListModule } from '@angular/material/list';
-import { CommonModule } from '@angular/common';
+import { MatListModule, MatSelectionListChange } from '@angular/material/list';
+import { CommonModule, DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -51,4 +51,35 @@ export class HeaderComponent {
     { locale: 'fa', label: 'فارسی' },
     { locale: 'en', label: 'انگلیسی' },
   ];
+
+  theme = signal<string>('DEFAULT');
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.setThemeClass(this.theme());
+    this.saveThemeToStorage(this.theme());
+  }
+
+  onThemeChange(e: MatSelectionListChange) {
+    if (!e.source._value) return;
+    const val = e.source._value[0];
+    this.removeThemeClass(val);
+    this.theme.set(val);
+    this.setThemeClass(this.theme());
+    this.saveThemeToStorage(this.theme());
+  }
+
+  setThemeClass(theme: string) {
+    this.document.body.classList.add(`theme--${theme}`);
+  }
+
+  removeThemeClass(theme: string) {
+    this.document.body.classList.remove(`theme--${theme.toLowerCase()}`);
+  }
+
+  saveThemeToStorage(theme: string) {
+    window.localStorage.setItem(
+      'preferred-color-palette',
+      JSON.stringify(`theme--${theme.toLocaleLowerCase()}`)
+    );
+  }
 }
