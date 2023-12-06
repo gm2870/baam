@@ -5,7 +5,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {
+  MatSlideToggleChange,
+  MatSlideToggleModule,
+} from '@angular/material/slide-toggle';
 import { MatListModule, MatSelectionListChange } from '@angular/material/list';
 import { CommonModule, DOCUMENT } from '@angular/common';
 
@@ -62,14 +65,14 @@ export class HeaderComponent {
   onThemeChange(e: MatSelectionListChange) {
     if (!e.source._value) return;
     const val = e.source._value[0];
-    this.removeThemeClass(val);
+    this.removeThemeClass(this.theme());
     this.theme.set(val);
     this.setThemeClass(this.theme());
     this.saveThemeToStorage(this.theme());
   }
 
   setThemeClass(theme: string) {
-    this.document.body.classList.add(`theme--${theme}`);
+    this.document.body.classList.add(`theme--${theme.toLowerCase()}`);
   }
 
   removeThemeClass(theme: string) {
@@ -81,5 +84,14 @@ export class HeaderComponent {
       'preferred-color-palette',
       JSON.stringify(`theme--${theme.toLocaleLowerCase()}`)
     );
+  }
+
+  darkModeChange(event: MatSlideToggleChange) {
+    const isDark = event.checked;
+    if (isDark) {
+      this.document.body.classList.add('dark-scheme');
+    } else {
+      this.document.body.classList.remove('dark-scheme');
+    }
   }
 }

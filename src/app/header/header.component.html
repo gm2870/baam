@@ -92,7 +92,10 @@
               <img src="assets/images/mask.svg" alt="" />
               <span class="mx-1">حالت شب</span>
             </div>
-            <mat-slide-toggle color="primary"></mat-slide-toggle>
+            <mat-slide-toggle
+              color="primary"
+              (change)="darkModeChange($event)"
+            ></mat-slide-toggle>
           </div>
         </mat-menu>
         <img class="h-[42px]" src="/assets/images/bmi-hor.svg" alt="" />

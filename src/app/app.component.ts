@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
     MatButtonModule,
     HeaderComponent,
     ReactiveFormsModule,
+    MatSidenavModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

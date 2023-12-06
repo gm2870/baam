@@ -1,25 +1,30 @@
-<app-header></app-header>
-<div
-  class="w-full max-sm:mt-8 md:flex md:items-center md:justify-center md:w-1/2"
->
-  <div class="flex justify-center w-full max-sm:h-full">
-    <div class="w-3/4 sm:w-1/2 md:w-2/3 md:mt-12 lg:w-1/2">
-      <form class="h-full flex flex-col">
-        <div class="flex flex-col">
-          <mat-form-field appearance="outline">
-            <mat-label i18n>username</mat-label>
-            <input type="text" matInput />
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label i18n>password</mat-label>
-            <input type="text" matInput />
-          </mat-form-field>
-          <button mat-raised-button color="primary" i18n>Login</button>
+<mat-drawer-container ngskiphydration class="h-full !bg-card">
+  <mat-drawer-content>
+    <app-header></app-header>
+    <div
+      class="w-full max-sm:mt-8 md:flex md:items-center md:justify-center md:w-1/2"
+    >
+      <div class="flex justify-center w-full max-sm:h-full">
+        <div class="w-3/4 sm:w-1/2 md:w-2/3 md:mt-12 lg:w-1/2">
+          <h2>به بام خوش اومدین!</h2>
+          <form class="h-full flex flex-col">
+            <div class="flex flex-col">
+              <mat-form-field appearance="outline">
+                <mat-label i18n>username</mat-label>
+                <input type="text" matInput />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label i18n>password</mat-label>
+                <input type="text" matInput />
+              </mat-form-field>
+              <button mat-raised-button color="primary" i18n>Login</button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
-</div>
-<div
-  class="w-full max-sm:mt-8 md:flex md:items-center md:justify-center md:w-1/2"
-></div>
+    <div
+      class="w-full max-sm:mt-8 md:flex md:items-center md:justify-center md:w-1/2"
+    ></div>
+  </mat-drawer-content>
+</mat-drawer-container>
