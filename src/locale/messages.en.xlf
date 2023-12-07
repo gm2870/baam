@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="fa" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="8008928654536647129" datatype="html">
         <source>نام کاربری</source>
+        <target state="final">username</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">13</context>
@@ -11,6 +12,7 @@
       </trans-unit>
       <trans-unit id="2132420445094136753" datatype="html">
         <source>رمز عبور</source>
+        <target state="final">password</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">17</context>
@@ -18,6 +20,7 @@
       </trans-unit>
       <trans-unit id="1474661783406571501" datatype="html">
         <source> ورود به سامانه بام </source>
+        <target state="final">login to baam</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">20,22</context>

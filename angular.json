@@ -3,12 +3,12 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-practice": {
+    "baam": {
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "fa",
         "locales": {
-          "fa": {
-            "translation": "src/locale/messages.fa.xlf"
+          "en": {
+            "translation": "src/locale/messages.en.xlf"
           }
         }
       },
@@ -32,7 +32,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-practice",
+            "outputPath": "dist/baam",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -71,8 +71,8 @@
               "namedChunks": true,
               "localize": false
             },
-            "fa": {
-              "localize": ["fa"]
+            "en": {
+              "localize": ["en"]
             }
           },
           "defaultConfiguration": "production"
@@ -81,16 +81,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-practice:build:production"
+              "browserTarget": "baam:build:production"
             },
             "development": {
-              "browserTarget": "ng-practice:build:development"
+              "browserTarget": "baam:build:development"
             },
             "en": {
-              "browserTarget": "ng-practice:build:development,en"
+              "browserTarget": "baam:build:development,en"
             },
             "fa": {
-              "browserTarget": "ng-practice:build:development,fa"
+              "browserTarget": "baam:build:development,fa"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-practice:build"
+            "browserTarget": "baam:build"
           }
         },
         "test": {
