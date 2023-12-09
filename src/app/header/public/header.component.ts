@@ -11,9 +11,11 @@ import {
 } from '@angular/material/slide-toggle';
 import { MatListModule, MatSelectionListChange } from '@angular/material/list';
 import { CommonModule, DOCUMENT } from '@angular/common';
+import { LanguageService } from '../../shared/language.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
+  selector: 'baam-public-header',
   templateUrl: 'header.component.html',
   standalone: true,
   imports: [
@@ -51,15 +53,18 @@ export class HeaderComponent {
   ];
 
   languages = [
-    { locale: 'fa', label: 'فارسی' },
-    { locale: 'en', label: 'انگلیسی' },
+    { locale: 'fa-IR', label: 'فارسی' },
+    { locale: 'en-US', label: 'انگلیسی' },
   ];
 
   theme = signal<string>('DEFAULT');
-
-  constructor(@Inject(DOCUMENT) private document: Document) {
-    this.setThemeClass(this.theme());
-    this.saveThemeToStorage(this.theme());
+  lang: 'fa-IR' | 'en-US' = 'fa-IR';
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private langService: LanguageService,
+    private router: Router
+  ) {
+    this.lang = this.langService.getLanguage();
   }
 
   onThemeChange(e: MatSelectionListChange) {
@@ -93,5 +98,15 @@ export class HeaderComponent {
     } else {
       this.document.body.classList.remove('dark-scheme');
     }
+  }
+
+  onLangChange(event: MatSelectionListChange) {
+    if (!event.source._value) return;
+
+    const val = event.source._value[0] as 'en-US' | 'fa-IR';
+    this.langService.setLanguage(val);
+    this.router.navigate([
+      `/${this.langService.getbaseHref()}/${this.router.url}`,
+    ]);
   }
 }

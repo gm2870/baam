@@ -37,13 +37,17 @@
                 </div>
               </mat-panel-title>
               <ng-template matExpansionPanelContent>
-                <mat-selection-list [multiple]="false">
+                <mat-selection-list
+                  (selectionChange)="onLangChange($event)"
+                  [multiple]="false"
+                >
                   <mat-list-option
                     color="primary"
-                    *ngFor="let lang of languages"
-                    [value]="lang.locale"
+                    *ngFor="let language of languages"
+                    [value]="language.locale"
+                    [selected]="language.locale === lang"
                   >
-                    <span>{{ lang.label }}</span>
+                    <span>{{ language.label }}</span>
                   </mat-list-option>
                 </mat-selection-list>
               </ng-template>
