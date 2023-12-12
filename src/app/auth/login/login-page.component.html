@@ -1,32 +1,78 @@
 <mat-drawer-container ngskiphydration class="h-full !bg-card">
-  <mat-drawer-content>
+  <mat-drawer-content class="!flex flex-col">
     <baam-public-header></baam-public-header>
-    <div
-      class="w-full max-sm:mt-8 md:flex md:items-center md:justify-center md:w-1/2"
-    >
-      <div class="flex justify-center w-full max-sm:h-full">
-        <div class="w-3/4 sm:w-1/2 md:w-2/3 md:mt-12 lg:w-1/2">
-          <h2>به بام خوش اومدین!</h2>
-          <form class="h-full flex flex-col">
-            <div class="flex flex-col">
-              <mat-form-field appearance="outline">
-                <mat-label i18n>نام کاربری</mat-label>
-                <input type="text" matInput />
-              </mat-form-field>
-              <mat-form-field appearance="outline">
-                <mat-label i18n>رمز عبور</mat-label>
-                <input type="text" matInput />
-              </mat-form-field>
-              <button mat-raised-button color="primary" i18n>
-                ورود به سامانه بام
-              </button>
+    <div class="flex flex-wrap flex-1">
+      <div
+        class="w-full max-sm:mt-8 md:flex md:items-center md:justify-center md:w-1/2"
+      >
+        <div class="flex justify-center w-full max-sm:h-full">
+          <div class="w-3/4 sm:w-1/2 md:w-2/3 md:mt-12 lg:w-1/2">
+            <div class="flex flex-col items-center max-sm:h-full max-sm:pb-8">
+              <img
+                class="w-[50px] overflow-hidden rounded-md"
+                src="/assets/images/baam-fill.svg"
+                alt=""
+              />
+              <h3 class="!mt-6 text-center !font-medium max-sm:!mb-2">
+                به بام خوش اومدین!
+              </h3>
+              <div class="text-foreground/80 mat-body-strong">
+                سامانه بانکداری دیجیتال بانک ملی ایران
+              </div>
+              <div class="mt-10 w-full flex-1">
+                <form class="h-full flex flex-col">
+                  <div class="flex flex-col">
+                    <mat-form-field appearance="outline">
+                      <mat-label i18n>نام کاربری</mat-label>
+                      <input type="text" matInput />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label i18n>رمز عبور</mat-label>
+                      <input type="text" matInput />
+                      <button mat-icon-button matSuffix>
+                        <mat-icon fontIcon="home"></mat-icon>
+                      </button>
+                    </mat-form-field>
+
+                    <div class="mt-3 flex items-start justify-end">
+                      <a class="text-primary hover:text-primary-900 underline"
+                        >فراموشی نام کاربری/رمز عبور</a
+                      >
+                    </div>
+                    <button
+                      class="!mt-12"
+                      mat-raised-button
+                      color="primary"
+                      i18n
+                    >
+                      ورود به سامانه&zwnj;ی بام
+                    </button>
+                  </div>
+                  <div class="mt-2 text-center">
+                    <a mat-button routerLink="#" color="primary"
+                      >غیر فعال سازی بام بان</a
+                    >
+                  </div>
+                  <div class="flex flex-col items-center md:mt-24">
+                    <a mat-button routerLink="#" color="primary"
+                      >ثبت نام در بام</a
+                    >
+                    <div class="text-foreground/70 text-center">
+                      برای دریافت خدمات هوشمند بانکی، به صورت امن، ساده و سریع
+                      در بام ثبت نام کنین.
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-          </form>
+          </div>
+        </div>
+      </div>
+      <div class="w-0 md:w-1/2">
+        <div class="cover-image">
+          <img src="/assets/images/login/cover-image.png" alt="" />
         </div>
       </div>
     </div>
-    <div
-      class="w-full max-sm:mt-8 md:flex md:items-center md:justify-center md:w-1/2"
-    ></div>
   </mat-drawer-content>
 </mat-drawer-container>

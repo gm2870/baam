@@ -43,7 +43,24 @@ body {
   margin: 0;
   font-size: 14px !important;
 }
-
+.mat-body-strong,
+.mat-subtitle-2,
+.mat-typography .mat-body-strong,
+.mat-typography .mat-subtitle-2 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  font-family: Vazir FD !important;
+  letter-spacing: normal;
+}
+.mat-typography h3 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  font-family: Vazir FD !important;
+  letter-spacing: normal;
+  margin: 0 0 16px;
+}
 *:not(.material-icons, .icon) {
   font-family: Vazir FD !important;
   letter-spacing: normal;
@@ -132,6 +149,12 @@ small {
 .theme--default {
   @include mat.core-color($default-theme);
   @include mat.button-color($default-theme);
+  --primary-color-500: 44, 146, 242;
+
+  .text-primary {
+    --tw-text-opacity: 1;
+    color: rgb(var(--primary-color-500), var(--tw-text-opacity));
+  }
 }
 
 .theme--spring {

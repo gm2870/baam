@@ -1,9 +1,7 @@
 import { Component, LOCALE_ID } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
-import { RouterOutlet, provideRouter } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './shared/language.service';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { routes } from './app.routes';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +27,3 @@ import { routes } from './app.routes';
 export class AppComponent {
   title = 'Baam';
 }
-
-bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
-});

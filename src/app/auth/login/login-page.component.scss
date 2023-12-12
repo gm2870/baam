@@ -1,0 +1,10 @@
+.cover-image {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/assets/images/login/login-bg.png) !important;
+}
