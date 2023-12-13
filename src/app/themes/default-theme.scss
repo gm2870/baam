@@ -21,3 +21,14 @@ $default-theme: mat.define-light-theme(
     density: 0,
   )
 );
+
+$default-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+    density: 0,
+  )
+);

@@ -7,7 +7,7 @@
 @import "vazir-font/dist/Farsi-Digits/font-face-FD.css";
 @import "./app/themes/default-theme";
 @import "./app/themes/spring-theme";
-@import "./app/themes/dark-theme";
+@import "./app/themes/autumn-theme";
 
 @include mat.all-component-themes($default-theme);
 
@@ -125,10 +125,27 @@ small {
   box-shadow: 0 0 #0003, 0 0 #00000024, 0 0 #0000001f;
 }
 
+.theme--default {
+  @include mat.core-color($default-theme);
+  @include mat.button-color($default-theme);
+  --primary-color-500: 44, 146, 242;
+
+  .text-primary {
+    --tw-text-opacity: 1;
+    color: rgb(var(--primary-color-500), var(--tw-text-opacity));
+  }
+}
+
+.theme--spring {
+  @include mat.all-component-colors($spring-theme);
+}
+
+.theme--autumn {
+  @include mat.all-component-colors($autumn-theme);
+}
+
 .dark-scheme {
-  @include mat.all-component-colors($dark-theme);
-  @include mat.core-color($dark-theme);
-  @include mat.button-color($dark-theme);
+  // @include mat.all-component-colors($dark-theme);
   --foreground-color: 255, 255, 255;
   --mdc-list-list-item-label-text-size: 0.875rem;
   --mat-divider-color: rgba(0, 0, 0, 0.12);
@@ -146,20 +163,17 @@ small {
     transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
   }
 }
-.theme--default {
-  @include mat.core-color($default-theme);
-  @include mat.button-color($default-theme);
-  --primary-color-500: 44, 146, 242;
 
-  .text-primary {
-    --tw-text-opacity: 1;
-    color: rgb(var(--primary-color-500), var(--tw-text-opacity));
-  }
+.theme--default.dark-scheme {
+  @include mat.all-component-colors($default-dark-theme);
 }
 
-.theme--spring {
-  @include mat.core-color($spring-theme);
-  @include mat.button-color($spring-theme);
+.theme--autumn.dark-scheme {
+  @include mat.all-component-colors($autumn-dark-theme);
+}
+
+.theme--spring.dark-scheme {
+  @include mat.all-component-colors($spring-dark-theme);
 }
 
 .\!bg-card {
