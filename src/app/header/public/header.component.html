@@ -72,7 +72,7 @@
                   [multiple]="false"
                 >
                   <mat-list-option
-                    [selected]="theme() === t.name"
+                    [selected]="themeName === t.name"
                     color="primary"
                     *ngFor="let t of themes"
                     [value]="t.name"
@@ -99,6 +99,7 @@
             <mat-slide-toggle
               color="primary"
               (change)="darkModeChange($event)"
+              [checked]="darkMode"
             ></mat-slide-toggle>
           </div>
         </mat-menu>

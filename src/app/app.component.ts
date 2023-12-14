@@ -1,7 +1,8 @@
-import { Component, LOCALE_ID } from '@angular/core';
+import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './shared/language.service';
+import { ThemeService } from './shared/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,12 @@ import { LanguageService } from './shared/language.service';
     },
   ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Baam';
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    this.themeService.setCurrentTheme();
+    this.themeService.setCurrentColorScheme();
+  }
 }

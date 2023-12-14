@@ -1,4 +1,4 @@
-import { Component, signal, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,6 +13,12 @@ import { MatListModule, MatSelectionListChange } from '@angular/material/list';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { LanguageService } from '../../shared/language.service';
 import { Router } from '@angular/router';
+import {
+  Theme,
+  ThemeService,
+  ThemeType,
+  themes,
+} from 'src/app/shared/theme.service';
 
 @Component({
   selector: 'baam-public-header',
@@ -31,61 +37,33 @@ import { Router } from '@angular/router';
   ],
 })
 export class HeaderComponent {
-  themes = [
-    {
-      name: 'DEFAULT',
-      label: 'پیش فرض',
-      avatar:
-        'background: linear-gradient(90deg, rgb(248, 155, 23) 50%, rgb(44, 146, 242) 50%);',
-    },
-    {
-      name: 'SPRING',
-      label: 'بهاری',
-      avatar:
-        'background: linear-gradient(90deg, rgb(51, 146, 214) 50%, rgb(234, 54, 108) 50%);',
-    },
-    {
-      name: 'AUTUMN',
-      label: 'پاییزی',
-      avatar:
-        'background: linear-gradient(90deg, rgb(83, 137, 156) 50%, rgb(248, 95, 49) 50%);',
-    },
-  ];
-
   languages = [
     { locale: 'fa-IR', label: 'فارسی' },
     { locale: 'en-US', label: 'انگلیسی' },
   ];
 
-  theme = signal<string>('DEFAULT');
+  themeName!: ThemeType;
   lang: 'fa-IR' | 'en-US' = 'fa-IR';
+  themes = themes;
+  darkMode = false;
   constructor(
-    @Inject(DOCUMENT) private document: Document,
     private langService: LanguageService,
-    private router: Router
+    private router: Router,
+    private themeService: ThemeService
   ) {
     this.lang = this.langService.getLanguage();
+    this.darkMode = this.themeService.isDark();
+    this.themeName = this.themeService.theme();
   }
 
   onThemeChange(e: MatSelectionListChange) {
     if (!e.source._value) return;
-    const val = e.source._value[0];
-    this.removeThemeClass(this.theme());
-    this.theme.set(val);
-    this.setThemeClass(this.theme());
-    this.saveThemeToStorage(this.theme());
-  }
-
-  setThemeClass(theme: string) {
-    this.document.body.classList.add(`theme--${theme.toLowerCase()}`);
-  }
-
-  removeThemeClass(theme: string) {
-    this.document.body.classList.remove(`theme--${theme.toLowerCase()}`);
+    const val = e.source._value[0] as ThemeType;
+    this.themeService.changeTheme(val);
   }
 
   saveThemeToStorage(theme: string) {
-    window.localStorage.setItem(
+    localStorage.setItem(
       'preferred-color-palette',
       JSON.stringify(`theme--${theme.toLocaleLowerCase()}`)
     );
@@ -94,9 +72,9 @@ export class HeaderComponent {
   darkModeChange(event: MatSlideToggleChange) {
     const isDark = event.checked;
     if (isDark) {
-      this.document.body.classList.add('dark-scheme');
+      this.themeService.setDarkMode();
     } else {
-      this.document.body.classList.remove('dark-scheme');
+      this.themeService.setLightMode();
     }
   }
 

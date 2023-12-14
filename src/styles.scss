@@ -144,7 +144,7 @@ small {
   @include mat.all-component-colors($autumn-theme);
 }
 
-.dark-scheme {
+.color-scheme-dark {
   // @include mat.all-component-colors($dark-theme);
   --foreground-color: 255, 255, 255;
   --mdc-list-list-item-label-text-size: 0.875rem;
@@ -164,15 +164,15 @@ small {
   }
 }
 
-.theme--default.dark-scheme {
+.theme--default.color-scheme-dark {
   @include mat.all-component-colors($default-dark-theme);
 }
 
-.theme--autumn.dark-scheme {
+.theme--autumn.color-scheme-dark {
   @include mat.all-component-colors($autumn-dark-theme);
 }
 
-.theme--spring.dark-scheme {
+.theme--spring.color-scheme-dark {
   @include mat.all-component-colors($spring-dark-theme);
 }
 
