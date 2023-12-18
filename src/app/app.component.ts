@@ -3,6 +3,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './shared/language.service';
 import { ThemeService } from './shared/theme.service';
+import { BreakpointService } from './shared/breakpoint.service';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,10 @@ import { ThemeService } from './shared/theme.service';
 })
 export class AppComponent implements OnInit {
   title = 'Baam';
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private breakpointService: BreakpointService
+  ) {}
 
   ngOnInit(): void {
     this.themeService.setCurrentTheme();

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from 'src/app/header/public/header.component';
+import { BreakpointService } from 'src/app/shared/breakpoint.service';
 
 @Component({
   selector: 'baam-login-page',
@@ -29,5 +30,14 @@ export class LoginPageComponent {
     username: [''],
     password: ['', Validators.required],
   });
-  constructor(private fb: FormBuilder) {}
+  isMobile = false;
+
+  constructor(
+    private fb: FormBuilder,
+    public breakpointService: BreakpointService
+  ) {
+    this.breakpointService.isMobile$.subscribe(
+      (isMobile) => (this.isMobile = isMobile)
+    );
+  }
 }

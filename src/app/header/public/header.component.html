@@ -1,7 +1,7 @@
 <mat-toolbar class="border-foreground/10 border-b border-solid">
   <div class="container">
     <div class="flex justify-between items-center">
-      <div class="flex">
+      <div *ngIf="!isMobile" class="flex">
         <img class="h-[42px]" src="/assets/images/baam-fill.svg" alt="" />
         <nav class="flex items-center px-2">
           <a mat-button routerLink="#">بانک ملی</a>
@@ -9,102 +9,125 @@
           <a mat-button routerLink="#">راهنما</a>
         </nav>
       </div>
-      <div class="flex">
-        <button class="mx-4" [matMenuTriggerFor]="menu">
-          <img class="!h-[36px] !w-[36px]" src="/assets/images/profile.png" />
+      <div *ngIf="isMobile" class="grid grid-cols-12 px-2">
+        <button class="flex flex-col justify-center" [matMenuTriggerFor]="menu">
+          <img class="!h-[30px]" src="/assets/images/profile.png" />
         </button>
-        <mat-menu
-          #menu="matMenu"
-          xPosition="before"
-          class="!min-w-[250px] lg:!mt-3"
+        <div
+          class="mat-subheading-2 col-span-10 !mb-0 flex items-center justify-center text-center !font-medium"
         >
-          <div class="py-2 mx-4">
-            <span>پروفایل من</span>
-            <small class="block opacity-75 !my-2">شما هنوز وارد نشده اید</small>
-          </div>
-          <mat-divider></mat-divider>
-
-          <mat-expansion-panel
-            (click)="$event.stopPropagation()"
-            class="mat-elevation-z0"
-          >
-            <mat-expansion-panel-header class="!px-4 py-2">
-              <mat-panel-title>
-                <div class="flex">
-                  <img src="assets/images/global.svg" alt="" />
-                  <span class="mx-1">زبان</span>
-                  <small class="mx-1 opacity-75">(فارسی)</small>
-                </div>
-              </mat-panel-title>
-              <ng-template matExpansionPanelContent>
-                <mat-selection-list
-                  (selectionChange)="onLangChange($event)"
-                  [multiple]="false"
-                >
-                  <mat-list-option
-                    color="primary"
-                    *ngFor="let language of languages"
-                    [value]="language.locale"
-                    [selected]="language.locale === lang"
-                  >
-                    <span>{{ language.label }}</span>
-                  </mat-list-option>
-                </mat-selection-list>
-              </ng-template>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-          <mat-divider></mat-divider>
-          <mat-expansion-panel
-            (click)="$event.stopPropagation()"
-            class="mat-elevation-z0"
-          >
-            <mat-expansion-panel-header class="!px-4 py-2">
-              <mat-panel-title>
-                <div class="flex">
-                  <img src="assets/images/brush.svg" alt="" />
-                  <span class="mx-1">قالب</span>
-                  <small class="mx-1 opacity-75">(پیش فرض)</small>
-                </div>
-              </mat-panel-title>
-              <ng-template matExpansionPanelContent>
-                <mat-selection-list
-                  (selectionChange)="onThemeChange($event)"
-                  [multiple]="false"
-                >
-                  <mat-list-option
-                    [selected]="themeName === t.name"
-                    color="primary"
-                    *ngFor="let t of themes"
-                    [value]="t.name"
-                  >
-                    <span
-                      matListItemAvatar
-                      class="!h-5 !w-5"
-                      [style]="t.avatar"
-                    ></span>
-                    <span matlistitemtitle>{{ t.label }}</span>
-                  </mat-list-option>
-                </mat-selection-list>
-              </ng-template>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-          <div
-            (click)="$event.stopPropagation()"
-            class="flex justify-between !px-4 py-2"
-          >
-            <div class="flex">
-              <img src="assets/images/mask.svg" alt="" />
-              <span class="mx-1">حالت شب</span>
-            </div>
-            <mat-slide-toggle
-              color="primary"
-              (change)="darkModeChange($event)"
-              [checked]="darkMode"
-            ></mat-slide-toggle>
-          </div>
-        </mat-menu>
+          بام
+        </div>
+        <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+          <mat-icon color="">more_vert</mat-icon>
+        </button>
+      </div>
+      <div *ngIf="!isMobile" class="flex items-center">
+        <button
+          class="mx-4 flex flex-col justify-center"
+          [matMenuTriggerFor]="menu"
+        >
+          <img class="!h-[36px]" src="/assets/images/profile.png" />
+        </button>
         <img class="h-[42px]" src="/assets/images/bmi-hor.svg" alt="" />
       </div>
+      <mat-menu #moreMenu="matMenu" xPosition="before" class="lg:!mt-3">
+        <ng-template matMenuContent>
+          <a mat-menu-item href="#">بانک ملی</a>
+          <a mat-menu-item href="#">تماس با ما</a>
+          <a mat-menu-item href="#">راهنما</a>
+        </ng-template>
+      </mat-menu>
+      <mat-menu
+        #menu="matMenu"
+        xPosition="before"
+        class="!min-w-[250px] lg:!mt-3"
+      >
+        <div class="py-2 mx-4">
+          <span>پروفایل من</span>
+          <small class="block opacity-75 !my-2">شما هنوز وارد نشده اید</small>
+        </div>
+        <mat-divider></mat-divider>
+
+        <mat-expansion-panel
+          (click)="$event.stopPropagation()"
+          class="mat-elevation-z0"
+        >
+          <mat-expansion-panel-header class="!px-4 py-2">
+            <mat-panel-title>
+              <div class="flex">
+                <img src="assets/images/global.svg" alt="" />
+                <span class="mx-1">زبان</span>
+                <small class="mx-1 opacity-75">(فارسی)</small>
+              </div>
+            </mat-panel-title>
+            <ng-template matExpansionPanelContent>
+              <mat-selection-list
+                (selectionChange)="onLangChange($event)"
+                [multiple]="false"
+              >
+                <mat-list-option
+                  color="primary"
+                  *ngFor="let language of languages"
+                  [value]="language.locale"
+                  [selected]="language.locale === lang"
+                >
+                  <span>{{ language.label }}</span>
+                </mat-list-option>
+              </mat-selection-list>
+            </ng-template>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-divider></mat-divider>
+        <mat-expansion-panel
+          (click)="$event.stopPropagation()"
+          class="mat-elevation-z0"
+        >
+          <mat-expansion-panel-header class="!px-4 py-2">
+            <mat-panel-title>
+              <div class="flex">
+                <img src="assets/images/brush.svg" alt="" />
+                <span class="mx-1">قالب</span>
+                <small class="mx-1 opacity-75">(پیش فرض)</small>
+              </div>
+            </mat-panel-title>
+            <ng-template matExpansionPanelContent>
+              <mat-selection-list
+                (selectionChange)="onThemeChange($event)"
+                [multiple]="false"
+              >
+                <mat-list-option
+                  [selected]="themeName === t.name"
+                  color="primary"
+                  *ngFor="let t of themes"
+                  [value]="t.name"
+                >
+                  <span
+                    matListItemAvatar
+                    class="!h-5 !w-5"
+                    [style]="t.avatar"
+                  ></span>
+                  <span matlistitemtitle>{{ t.label }}</span>
+                </mat-list-option>
+              </mat-selection-list>
+            </ng-template>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <div
+          (click)="$event.stopPropagation()"
+          class="flex justify-between !px-4 py-2"
+        >
+          <div class="flex">
+            <img src="assets/images/mask.svg" alt="" />
+            <span class="mx-1">حالت شب</span>
+          </div>
+          <mat-slide-toggle
+            color="primary"
+            (change)="darkModeChange($event)"
+            [checked]="darkMode"
+          ></mat-slide-toggle>
+        </div>
+      </mat-menu>
     </div>
   </div>
 </mat-toolbar>

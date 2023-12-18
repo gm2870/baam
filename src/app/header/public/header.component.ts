@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,15 +10,11 @@ import {
   MatSlideToggleModule,
 } from '@angular/material/slide-toggle';
 import { MatListModule, MatSelectionListChange } from '@angular/material/list';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../shared/language.service';
 import { Router } from '@angular/router';
-import {
-  Theme,
-  ThemeService,
-  ThemeType,
-  themes,
-} from 'src/app/shared/theme.service';
+import { ThemeService, ThemeType, themes } from 'src/app/shared/theme.service';
+import { BreakpointService } from 'src/app/shared/breakpoint.service';
 
 @Component({
   selector: 'baam-public-header',
@@ -36,7 +32,7 @@ import {
     MatListModule,
   ],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   languages = [
     { locale: 'fa-IR', label: 'فارسی' },
     { locale: 'en-US', label: 'انگلیسی' },
@@ -46,14 +42,22 @@ export class HeaderComponent {
   lang: 'fa-IR' | 'en-US' = 'fa-IR';
   themes = themes;
   darkMode = false;
+  isMobile = false;
+
   constructor(
     private langService: LanguageService,
     private router: Router,
-    private themeService: ThemeService
-  ) {
+    private themeService: ThemeService,
+    private breakpointService: BreakpointService
+  ) {}
+
+  ngOnInit(): void {
     this.lang = this.langService.getLanguage();
     this.darkMode = this.themeService.isDark();
     this.themeName = this.themeService.theme();
+    this.breakpointService.isMobile$.subscribe(
+      (isMobile) => (this.isMobile = isMobile)
+    );
   }
 
   onThemeChange(e: MatSelectionListChange) {
