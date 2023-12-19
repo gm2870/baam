@@ -1,9 +1,9 @@
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { LanguageService } from './shared/language.service';
-import { ThemeService } from './shared/theme.service';
-import { BreakpointService } from './shared/breakpoint.service';
+import { LanguageService } from './shared/services/language.service';
+import { ThemeService } from './shared/services/theme.service';
+import { BreakpointService } from './shared/services/breakpoint.service';
 
 @Component({
   selector: 'app-root',

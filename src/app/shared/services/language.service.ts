@@ -4,7 +4,12 @@ import { Inject, Injectable, LOCALE_ID } from '@angular/core';
   providedIn: 'root',
 })
 export class LanguageService {
+  get lang() {
+    return this.getLanguage() === 'fa-IR' ? 'fa' : 'en';
+  }
+
   constructor(@Inject(LOCALE_ID) private locale: string) {}
+
   getLanguage() {
     const storageLang = localStorage.getItem('preferred-language');
     if (storageLang) {
@@ -17,6 +22,7 @@ export class LanguageService {
   getbaseHref() {
     return this.getLanguage() === 'fa-IR' ? 'fa' : 'en';
   }
+
   setLanguage(lang: 'en-US' | 'fa-IR') {
     localStorage.setItem('preferred-language', JSON.stringify(lang));
   }

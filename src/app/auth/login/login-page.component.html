@@ -20,18 +20,29 @@
                 سامانه بانکداری دیجیتال بانک ملی ایران
               </div>
               <div class="mt-10 w-full flex-1">
-                <form class="h-full flex flex-col">
+                <form class="h-full flex flex-col" [formGroup]="form">
                   <div class="flex flex-col">
                     <mat-form-field appearance="outline">
                       <mat-label i18n>نام کاربری</mat-label>
-                      <input type="text" matInput />
+                      <input type="text" matInput formControlName="username" />
+                      <mat-error *ngIf="username?.hasError('required')">
+                        <baam-error-message
+                          messageId="required"
+                        ></baam-error-message>
+                      </mat-error>
                     </mat-form-field>
+
                     <mat-form-field appearance="outline">
                       <mat-label i18n>رمز عبور</mat-label>
-                      <input type="text" matInput />
+                      <input type="text" matInput formControlName="password" />
                       <button mat-icon-button matSuffix>
                         <mat-icon fontIcon="visibility"></mat-icon>
                       </button>
+                      <mat-error *ngIf="password?.hasError('required')">
+                        <baam-error-message
+                          messageId="required"
+                        ></baam-error-message>
+                      </mat-error>
                     </mat-form-field>
 
                     <div class="mt-3 flex items-start justify-end">
