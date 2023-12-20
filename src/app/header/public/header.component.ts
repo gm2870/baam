@@ -93,8 +93,6 @@ export class HeaderComponent implements OnInit {
 
     const val = event.source._value[0] as 'en-US' | 'fa-IR';
     this.langService.setLanguage(val);
-    this.router.navigate([
-      `/${this.langService.getbaseHref()}/${this.router.url}`,
-    ]);
+    location.href = `/${this.langService.getbaseHref()}${this.router.url}`;
   }
 }

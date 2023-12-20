@@ -39,7 +39,7 @@ export class ThemeService {
 
   setDefaultTheme() {
     this.document.body.classList.add('theme--default');
-    this.theme.set(JSON.parse(themes[0].name));
+    this.theme.set(themes[0].name);
   }
 
   setColorScheme(scheme: ColorScheme) {

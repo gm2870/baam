@@ -2,7 +2,7 @@
   <div class="container">
     <div class="flex justify-between items-center">
       <div *ngIf="!isMobile" class="flex">
-        <img class="h-[42px]" src="/assets/images/baam-fill.svg" alt="" />
+        <img class="h-[42px]" src="assets/images/baam-fill.svg" alt="" />
         <nav class="flex items-center px-2">
           <a mat-button routerLink="#">بانک ملی</a>
           <a mat-button routerLink="#">تماس با ما</a>
@@ -11,7 +11,7 @@
       </div>
       <div *ngIf="isMobile" class="grid grid-cols-12 px-2">
         <button class="flex flex-col justify-center" [matMenuTriggerFor]="menu">
-          <img class="!h-[30px]" src="/assets/images/profile.png" />
+          <img class="!h-[30px]" src="assets/images/profile.png" />
         </button>
         <div
           class="mat-subheading-2 col-span-10 !mb-0 flex items-center justify-center text-center !font-medium"
@@ -27,9 +27,9 @@
           class="mx-4 flex flex-col justify-center"
           [matMenuTriggerFor]="menu"
         >
-          <img class="!h-[36px]" src="/assets/images/profile.png" />
+          <img class="!h-[36px]" src="assets/images/profile.png" />
         </button>
-        <img class="h-[42px]" src="/assets/images/bmi-hor.svg" alt="" />
+        <img class="h-[42px]" src="assets/images/bmi-hor.svg" alt="" />
       </div>
       <mat-menu #moreMenu="matMenu" xPosition="before" class="lg:!mt-3">
         <ng-template matMenuContent>
