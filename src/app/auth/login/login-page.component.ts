@@ -38,7 +38,7 @@ import { translations } from 'src/locale/translations';
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
   isMobile = false;
-
+  showPassword = false;
   get username() {
     return this.form.get('username');
   }

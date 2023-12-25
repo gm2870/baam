@@ -2,25 +2,142 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="fa" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="2553545813018493688" datatype="html">
+        <source> به بام خوش اومدین! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="303375103646140974" datatype="html">
+        <source> سامانه بانکداری دیجیتال بانک ملی ایران </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8008928654536647129" datatype="html">
         <source>نام کاربری</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2132420445094136753" datatype="html">
         <source>رمز عبور</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1474661783406571501" datatype="html">
-        <source> ورود به سامانه بام </source>
+      <trans-unit id="9003835164484149643" datatype="html">
+        <source>فراموشی نام کاربری/رمز عبور</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">20,22</context>
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2864571741699371972" datatype="html">
+        <source> ورود به سامانه‌ی بام </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1531913381085792391" datatype="html">
+        <source>غیر فعال سازی بام بان</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7242611456201517752" datatype="html">
+        <source>ثبت نام در بام</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6566473187643676691" datatype="html">
+        <source> برای دریافت خدمات هوشمند بانکی، به صورت امن، ساده و سریع در بام ثبت نام کنین. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login-page.component.html</context>
+          <context context-type="linenumber">88,91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4097838108968109713" datatype="html">
+        <source>بانک ملی</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8454429997478011433" datatype="html">
+        <source>تماس با ما</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2008416906854645587" datatype="html">
+        <source>راهنما</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8649704915137756875" datatype="html">
+        <source> بام </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7819731013647063798" datatype="html">
+        <source>پروفایل من</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7316245094881734224" datatype="html">
+        <source>شما هنوز وارد نشده اید</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8074304452955982641" datatype="html">
+        <source>زبان</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5274254049474432674" datatype="html">
+        <source>قالب</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4942921206522296587" datatype="html">
+        <source>حالت شب</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/public/header.component.html</context>
+          <context context-type="linenumber">125</context>
         </context-group>
       </trans-unit>
     </body>

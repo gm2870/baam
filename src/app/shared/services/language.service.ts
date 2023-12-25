@@ -8,7 +8,7 @@ export class LanguageService {
     return this.getLanguage() === 'fa-IR' ? 'fa' : 'en';
   }
 
-  constructor(@Inject(LOCALE_ID) private locale: string) {}
+  constructor() {}
 
   getLanguage() {
     const storageLang = localStorage.getItem('preferred-language');

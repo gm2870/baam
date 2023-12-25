@@ -20,6 +20,7 @@ import {
 } from 'src/app/shared/services/theme.service';
 import { BreakpointService } from 'src/app/shared/services/breakpoint.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslatePipe } from 'src/app/shared/pipes/translate.pipe';
 
 @Component({
   selector: 'baam-public-header',
@@ -35,6 +36,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     MatDividerModule,
     MatSlideToggleModule,
     MatListModule,
+    TranslatePipe,
   ],
 })
 export class HeaderComponent implements OnInit {
