@@ -1,8 +1,8 @@
-import { Component, DestroyRef, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, ViewChild } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import {
@@ -44,13 +44,13 @@ export class HeaderComponent implements OnInit {
     { locale: 'fa-IR', label: 'فارسی' },
     { locale: 'en-US', label: 'انگلیسی' },
   ];
-
+  @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   themeName!: ThemeType;
   lang: 'fa-IR' | 'en-US' = 'fa-IR';
   themes = themes;
   darkMode = false;
   isMobile = false;
-
+  menuOpen = false;
   constructor(
     private langService: LanguageService,
     private router: Router,
@@ -71,6 +71,8 @@ export class HeaderComponent implements OnInit {
   onThemeChange(e: MatSelectionListChange) {
     if (!e.source._value) return;
     const val = e.source._value[0] as ThemeType;
+    this.themeName = val;
+    this.trigger.closeMenu();
     this.themeService.changeTheme(val);
   }
 

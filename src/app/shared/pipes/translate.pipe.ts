@@ -9,7 +9,6 @@ export class TranslatePipe implements PipeTransform {
   constructor(@Inject(LOCALE_ID) private locale: string) {}
   translations = translations;
   transform(value: any, ...args: string[]) {
-    console.log(args);
     return translations[this.locale][args[0]][args[1]];
   }
 }
