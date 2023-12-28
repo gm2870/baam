@@ -2,15 +2,25 @@ import express from "express";
 import { dirname } from "path";
 import path from "path";
 import { fileURLToPath } from "url";
+import bodyParser from "body-parser";
 
+import cors from "cors";
 const __filename = fileURLToPath(import.meta.url);
-
+import authRoutes from "./routes/authRoutes.mjs";
 const __dirname = dirname(__filename);
 const rootDir = path.join(__dirname, "../dist/baam");
 const locales = ["en", "fa"];
 const port = 8080;
 
 const server = express();
+server.use(bodyParser.json());
+
+server.use(
+  cors({
+    origin: "http://localhost:4200",
+    credentials: true,
+  })
+);
 
 server.use(express.static(rootDir));
 
@@ -26,11 +36,11 @@ locales.forEach((locale) => {
 
 const defaultLocale = "fa";
 
-server.get("/auth/login", (req, res) => {});
-
 server.get("/", (req, res) => {
   res.redirect(`/${defaultLocale}`);
 });
+
+server.use("/api/auth", authRoutes);
 
 server.listen(port, () => {
   console.log("app running");

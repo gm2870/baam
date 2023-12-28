@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LanguageService } from '../../services/language.service';
 import { translations } from 'src/locale/translations';

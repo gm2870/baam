@@ -18,6 +18,7 @@
   --mat-toolbar-container-text-color: rgba(0, 0, 0, 0.87);
   --mdc-text-button-label-text-color: inherit;
   --mdc-outlined-button-label-text-color: inherit;
+  --divider-color: 255, 255, 255;
 }
 
 @font-face {
@@ -217,4 +218,43 @@ small {
 }
 .mat-mdc-form-field {
   margin-bottom: 0.5rem;
+}
+
+.overlay-spinner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff80;
+  border-radius: rgb(var(--divider-color)) !important;
+}
+
+.overlay-spinner::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  animation: spinner 0.8s linear infinite;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  border: 5px solid currentColor;
+  border-top-color: #00000005;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spinner 1s linear infinite;
 }

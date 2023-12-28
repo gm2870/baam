@@ -20,7 +20,11 @@
                 سامانه بانکداری دیجیتال بانک ملی ایران
               </div>
               <div class="mt-10 w-full flex-1">
-                <form class="h-full flex flex-col" [formGroup]="form">
+                <form
+                  class="h-full flex flex-col"
+                  [formGroup]="form"
+                  (ngSubmit)="submit()"
+                >
                   <div class="flex flex-col">
                     <mat-form-field appearance="outline">
                       <mat-label i18n>نام کاربری</mat-label>
@@ -41,6 +45,7 @@
                       />
                       <button
                         (click)="showPassword = !showPassword"
+                        type="button"
                         mat-icon-button
                         matSuffix
                       >
@@ -52,7 +57,7 @@
                       </button>
                       <mat-error *ngIf="password?.hasError('required')">
                         <baam-error-message
-                          messageId="required"
+                          [messageId]="errorMsgKey"
                         ></baam-error-message>
                       </mat-error>
                     </mat-form-field>
@@ -69,6 +74,10 @@
                       mat-raised-button
                       color="primary"
                       i18n
+                      type="submit"
+                      [ngClass]="{
+                        'overlay-spinner !cursor-progress': loading
+                      }"
                     >
                       ورود به سامانه&zwnj;ی بام
                     </button>
