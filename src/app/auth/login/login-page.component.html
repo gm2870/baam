@@ -21,6 +21,7 @@
               </div>
               <div class="mt-10 w-full flex-1">
                 <form
+                  *ngIf="!codeSent"
                   class="h-full flex flex-col"
                   [formGroup]="form"
                   (ngSubmit)="submit()"
@@ -100,6 +101,69 @@
                     </div>
                   </div>
                 </form>
+                <ng-container *ngIf="codeSent">
+                  <div class="bg-[#DCFCE7] text-[green] p-4 my-4 mb-8 rounded">
+                    <p class="!m-0">
+                      رمز یکبار مصرف 12345 که به شماره موبیلتون 9106949628 پیامک
+                      شده رو وارد کنین
+                    </p>
+                  </div>
+                  <form [formGroup]="codeForm">
+                    <div>
+                      <mat-form-field class="w-full" appearance="outline">
+                        <mat-label i18n>رمز یکبار مصرف</mat-label>
+                        <input type="text" matInput formControlName="code" />
+                        <mat-error *ngIf="code?.hasError('required')">
+                          <baam-error-message
+                            messageId="required"
+                          ></baam-error-message>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="text-left mb-2">
+                      <ng-container *ngIf="showTimer">
+                        <span class="">زمان باقی مانده</span>
+                        :
+                        <span class="ms-1 text-blue-600">{{
+                          timer.toString().padStart(2, "0")
+                        }}</span>
+                        <span class="ms-1 text-blue-600">ثانیه</span>
+                      </ng-container>
+                      <span
+                        role="button"
+                        class="text-blue-600 underline hover:text-blue-900"
+                        *ngIf="!showTimer"
+                        >ارسال دوباره رمز یکبار مصرف</span
+                      >
+                    </div>
+                    <button
+                      class="w-full"
+                      mat-raised-button
+                      color="primary"
+                      i18n
+                      type="submit"
+                      [ngClass]="{
+                        'overlay-spinner !cursor-progress': loading
+                      }"
+                    >
+                      تایید
+                    </button>
+                    <button
+                      (click)="backToLogin()"
+                      i18n
+                      mat-button
+                      color="primary"
+                      class="w-full"
+                    >
+                      بازگشت
+                      <mat-icon
+                        fontIcon="
+                          arrow_forward
+                        "
+                      ></mat-icon>
+                    </button>
+                  </form>
+                </ng-container>
               </div>
             </div>
           </div>

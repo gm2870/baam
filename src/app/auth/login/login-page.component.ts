@@ -16,7 +16,6 @@ import { HeaderComponent } from 'src/app/header/public/header.component';
 import { ErrorMessageComponent } from 'src/app/shared/components/error-message/error-message.component';
 import { BreakpointService } from 'src/app/shared/services/breakpoint.service';
 import { AuthService } from '../auth.service';
-import { delay } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -44,10 +43,18 @@ export class LoginPageComponent implements OnInit {
   loading = false;
   formHasError = false;
   errorMsgKey = 'required';
+  codeSent = false;
+  timer = 90;
+  showTimer = false;
+  codeForm = this.fb.group({
+    code: ['', Validators.required],
+  });
   get username() {
     return this.form.get('username');
   }
-
+  get code() {
+    return this.codeForm.get('code');
+  }
   get password() {
     return this.form.get('password');
   }
@@ -70,13 +77,29 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
+  startTimer() {
+    const interval = setInterval(() => {
+      this.timer--;
+      if (this.timer === 0) {
+        this.showTimer = false;
+        clearInterval(interval);
+        return;
+      }
+    }, 1000);
+  }
+  backToLogin() {
+    this.timer = 90;
+    this.codeSent = false;
+  }
   submit(): void {
     if (this.form.invalid || this.loading) return;
     this.loading = true;
     this.authService.login(this.form.value).subscribe({
       next: () => {
         this.loading = false;
-        this.router.navigate(['/console/home']);
+        this.codeSent = true;
+        this.showTimer = true;
+        this.startTimer();
       },
       error: ({ error }) => {
         this.errorMsgKey = error.data;
