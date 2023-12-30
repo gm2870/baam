@@ -12,4 +12,8 @@ export const translations: Record<
     en: 'Your username or password is wrong',
     fa: 'هویت شما با این مشخصات تایید نمیشه',
   },
+  INVALID_CODE: {
+    en: 'The code is invalid',
+    fa: 'رمز وارد شده معتبر نمی باشد',
+  },
 };

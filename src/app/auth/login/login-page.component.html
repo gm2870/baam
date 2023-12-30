@@ -108,14 +108,14 @@
                       شده رو وارد کنین
                     </p>
                   </div>
-                  <form [formGroup]="codeForm">
+                  <form [formGroup]="codeForm" (ngSubmit)="confirmCode()">
                     <div>
                       <mat-form-field class="w-full" appearance="outline">
                         <mat-label i18n>رمز یکبار مصرف</mat-label>
                         <input type="text" matInput formControlName="code" />
                         <mat-error *ngIf="code?.hasError('required')">
                           <baam-error-message
-                            messageId="required"
+                            [messageId]="errorMsgKey"
                           ></baam-error-message>
                         </mat-error>
                       </mat-form-field>

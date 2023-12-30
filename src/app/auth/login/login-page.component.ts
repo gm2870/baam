@@ -103,10 +103,21 @@ export class LoginPageComponent implements OnInit {
       },
       error: ({ error }) => {
         this.errorMsgKey = error.data;
-        this.formHasError = true;
         this.password?.setErrors({ required: error.data });
         this.loading = false;
       },
     });
+  }
+
+  confirmCode() {
+    if (this.codeForm.invalid) {
+      return;
+    }
+    if (this.codeForm.value.code !== '12345') {
+      this.errorMsgKey = 'INVALID_CODE';
+      this.code?.setErrors({ required: 'INVALID_CODE' });
+      return;
+    }
+    this.router.navigate(['/console/home']);
   }
 }
